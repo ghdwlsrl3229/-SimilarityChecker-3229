@@ -43,11 +43,20 @@ class SimilarityCheckerTest {
     }
 
     @Test
-    void getShorterString() {
+    void getShorterStringLength() {
         assertEquals(3, sc.getShorterStringLength("ABCDE", "ABC"));
         assertEquals(1, sc.getShorterStringLength("A", "ABC"));
         assertEquals(2, sc.getShorterStringLength("ABCDE", "BC"));
         assertEquals(3, sc.getShorterStringLength("ABCDEW", "ABC"));
         assertEquals(2, sc.getShorterStringLength("AC", "AB"));
+    }
+
+    @Test
+    void getLongerStringLength() {
+        assertEquals(5, sc.getLongerStringLength("ABCDE", "ABC"));
+        assertEquals(3, sc.getLongerStringLength("A", "ABC"));
+        assertEquals(5, sc.getLongerStringLength("ABCDE", "BC"));
+        assertEquals(6, sc.getLongerStringLength("ABCDEW", "ABC"));
+        assertEquals(2, sc.getLongerStringLength("AC", "AB"));
     }
 }
