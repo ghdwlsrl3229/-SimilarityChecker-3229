@@ -27,4 +27,13 @@ class SimilarityCheckerTest {
 
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void getTotalCountTest() {
+        SimilarityChecker sc = new SimilarityChecker();
+        assertEquals(6, sc.getTotalCount("ABC", "DEF"));
+        assertEquals(8, sc.getTotalCount("ABCDE", "DEFGH"));
+        assertEquals(4, sc.getTotalCount("ABCD", "ABC"));
+    }
+
 }
