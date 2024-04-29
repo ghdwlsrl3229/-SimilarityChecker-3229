@@ -3,7 +3,9 @@ import java.util.ArrayList;
 
 public class SimilarityChecker {
     public int getAlphaScore(String str1, String str2) {
-        return 40;
+        int TotalCnt = getTotalCount(str1, str2);
+        int SameCnt = getSameCount(str1, str2);
+        return SameCnt * 40 / TotalCnt;
     }
 
     public boolean[] getAlphaExistList(String str) {

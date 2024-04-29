@@ -42,6 +42,5 @@ class SimilarityCheckerTest {
         assertEquals(0, sc.getSameCount("ABC", "DEF"));
         assertEquals(2, sc.getSameCount("ABCDE", "DEF"));
         assertEquals(3, sc.getSameCount("ABC", "ABC"));
-
     }
 }
