@@ -59,4 +59,13 @@ class SimilarityCheckerTest {
         assertEquals(6, sc.getLongerStringLength("ABCDEW", "ABC"));
         assertEquals(2, sc.getLongerStringLength("AC", "AB"));
     }
+
+    @Test
+    void partialScoreTest() {
+        assertEquals(30, sc.getLengthScore("ABC", "AB"));
+        assertEquals(40, sc.getLengthScore("ABCD", "CAB"));
+        assertEquals(20, sc.getLengthScore("ABCDE", "CAB"));
+        assertEquals(45, sc.getLengthScore("ABCDE", "CABD"));
+        assertEquals(48, sc.getLengthScore("ABCDEB", "CABDE"));
+    }
 }
