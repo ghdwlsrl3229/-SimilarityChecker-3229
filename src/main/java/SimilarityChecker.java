@@ -6,15 +6,15 @@ public class SimilarityChecker {
     }
 
     private int getPartialScore(String str1, String str2) {
-        int shortLength = getShorterStringLength(str1, str2);
-        int longLength = getLongerStringLength(str1, str2);
+        int shortLength = Math.min(str1.length(), str2.length());
+        int longLength = Math.max(str1.length(), str2.length());
         int gap = longLength - shortLength;
         return (int)((1 - 1.0 * gap / shortLength) * 60);
     }
 
     private boolean is2TimesOverLengthDiff(String str1, String str2) {
-        int shortLength = getShorterStringLength(str1, str2);
-        int longLength = getLongerStringLength(str1, str2);
+        int shortLength = Math.min(str1.length(), str2.length());
+        int longLength = Math.max(str1.length(), str2.length());
         return shortLength * 2 < longLength;
     }
 
@@ -22,13 +22,4 @@ public class SimilarityChecker {
         return str1.length() == str2.length();
     }
 
-    public int getShorterStringLength(String str1, String str2) {
-        if (str1.length() < str2.length()) return str1.length();
-        return str2.length();
-    }
-
-    public int getLongerStringLength(String str1, String str2) {
-        if (str1.length() > str2.length()) return str1.length();
-        return str2.length();
-    }
 }
