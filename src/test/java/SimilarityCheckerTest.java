@@ -43,4 +43,13 @@ class SimilarityCheckerTest {
         assertEquals(2, sc.getSameCount("ABCDE", "DEF"));
         assertEquals(3, sc.getSameCount("ABC", "ABC"));
     }
+
+    @Test
+    void getAlphaScoreTest() {
+        SimilarityChecker sc = new SimilarityChecker();
+        assertEquals(0, sc.getAlphaScore("A", "BB"));
+        assertEquals(20, sc.getAlphaScore("AA", "AAE"));
+        assertEquals(40 / 3, sc.getAlphaScore("ABCDE", "DEF"));
+        assertEquals(8, sc.getAlphaScore("ABC", "CDF"));
+    }
 }
