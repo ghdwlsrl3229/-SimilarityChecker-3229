@@ -24,4 +24,15 @@ public class SimilarityChecker {
         }
         return result;
     }
+
+    public int getSameCount(String str1, String str2) {
+        boolean[] AlphaExistList1 = getAlphaExistList(str1);
+        boolean[] AlphaExistList2 = getAlphaExistList(str2);
+
+        int result = 0;
+        for (char ch = 'A'; ch <= 'Z'; ch++) {
+            if (AlphaExistList1[ch - 'A'] && AlphaExistList2[ch - 'A']) result++;
+        }
+        return result;
+    }
 }
